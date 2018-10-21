@@ -1,0 +1,14 @@
+<div class="row">
+  <div class="col-xs-4">
+    <img class="media-object img-responsive img-circle pull-left" src="<%= gravatar_url(@user, { size: 400 }) %>" alt="">
+  </div>
+  <ul class="list-unstyled">
+    <li>ユーザー名：<%= @user.name %></li>
+    <li>投稿件数：〇件</li>
+    <li class="clearfix">お気に入り一覧：〇件</li>
+  </ul>
+  <div class="list-inline text-center list-group">
+    <a href="#" class="list-group-item">投稿一覧</a>
+    <a href="#" class="list-group-item">お気に入り一覧</a>
+  </div>
+</div>
