@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   def show
+    @post = Post.find(params[:id])
   end
 
   def new
@@ -20,6 +21,7 @@ class PostsController < ApplicationController
   end
 
   def edit
+    @post = Post.find(params[:id])
   end
   
   def confirm
@@ -28,6 +30,14 @@ class PostsController < ApplicationController
   end
 
   def update
+    @post = Post.find(params[:id])
+    if @post.update(post_params)
+      flash[:success] = '投稿を編集しました'
+      redirect_to @post
+    else
+      flash.now[:danger] = '投稿の編集に失敗しました'
+      render 'new'
+    end
   end
 
   def destroy

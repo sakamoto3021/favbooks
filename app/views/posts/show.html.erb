@@ -1,2 +1,9 @@
-<h1>Posts#show</h1>
-<p>Find me in app/views/posts/show.html.erb</p>
+<h3><%= @post.book_title %></h3>
+<div class="text-muted text-right">
+  作成日時：<%= @post.created_at.strftime('%Y年%m月%d日') %>
+</div>
+<h4><%= @post.content_title %></h4>
+<div class="main-content">
+  <p><%= @post.content %></p>
+</div>
+<%= link_to '編集', edit_post_path(@post) %>
