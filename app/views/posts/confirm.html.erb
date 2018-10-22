@@ -1,0 +1,18 @@
+<%= form_for(@post) do |f| %>
+  <div class="field">
+    <%= @post.book_title %>
+    <%= f.hidden_field :book_title %>
+  </div>
+  <div class="field">
+    <%= @post.content_title %>
+    <%= f.hidden_field :content_title %>
+  </div>
+  <div class="field">
+    <%= @post.content %>
+    <%= f.hidden_field :content %>
+  </div>
+  <div class="actions">
+    <%= f.submit '戻る', name: 'back'%>
+  </div>
+  <%= f.submit '作成' %>
+<% end %>

@@ -1,11 +1,13 @@
 <% if logged_in? %>
-  <p>ログインユーザー：<%= current_user.name %></p>
+  <p>検索フォーム作る</p>
+  <%= render 'posts/post', post:@posts %>
 <% else %>
   <div class="center jumbotron">
     <div class="text-center">
       <h1>favbooksへようこそ！</h1>
     </div>
   </div>
+  <%= render 'posts/post', post:@posts %>
   <div class="text-center">
     <%= link_to 'ユーザー登録', signup_path %>
   </div>

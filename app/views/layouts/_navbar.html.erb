@@ -14,7 +14,7 @@
         <ul class="nav navbar-nav navbar-right">
           <% if logged_in? %>
             <li><%= link_to 'マイページ', user_path(current_user) %></li>
-            <li><a href="#">新規投稿</a></li>
+            <li><%= link_to '新規投稿', new_post_path %></li>
             <li><%= link_to 'ログアウト', logout_path, method: :delete %></li>
           <% else %>
             <li><%= link_to 'ログイン', login_path %></li>

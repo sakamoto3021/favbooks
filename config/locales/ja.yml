@@ -8,3 +8,10 @@ ja:
         email: メールアドレス
         password: パスワード
         password_confirmation: パスワード(確認用)
+    models:
+      post: 投稿
+    attributes:
+      post:
+        book_title: 書籍タイトル
+        content_title: タイトル
+        content: 本文
