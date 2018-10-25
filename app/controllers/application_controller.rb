@@ -9,4 +9,10 @@ class ApplicationController < ActionController::Base
       redirect_to login_path
     end
   end
+  
+  def counts(user)
+    @count_posts = user.posts.count
+    @count_fav_posts = user.fav_posts.count
+  end
+  
 end

@@ -1,18 +1,24 @@
 <%= form_for(@post) do |f| %>
   <div class="field">
-    <%= @post.book_title %>
+    <h3><%= @post.book_title %></h3>
     <%= f.hidden_field :book_title %>
   </div>
   <div class="field">
-    <%= @post.content_title %>
+    <h4><%= @post.content_title %></h4>
     <%= f.hidden_field :content_title %>
   </div>
   <div class="field">
-    <%= @post.content %>
+    <div class="main-content">
+      <p><%= @post.content %></p>
+    </div>
     <%= f.hidden_field :content %>
   </div>
-  <div class="actions">
-    <%= f.submit '戻る', name: 'back'%>
+  <div class="btn-toolbar pull-right">
+    <div class="btn btn-group">
+      <div class="actions">
+        <%= f.submit '戻る', name: 'back', class:'btn btn-info'%>
+        <%= f.submit '作成', class:'btn btn-primary'%>
+      </div>
+    </div>
   </div>
-  <%= f.submit '作成' %>
 <% end %>

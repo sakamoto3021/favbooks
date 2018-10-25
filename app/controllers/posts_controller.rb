@@ -1,4 +1,7 @@
 class PostsController < ApplicationController
+  before_action :require_user_logged_in, only: [:new, :create, :edit, :update, :destroy, :confirm]
+  before_action :correct_user, only: [:edit, :update, :destroy]
+  
   def show
     @post = Post.find(params[:id])
   end
@@ -23,15 +26,13 @@ class PostsController < ApplicationController
   def edit
     @post = Post.find(params[:id])
   end
-  
-  def confirm
-    @post = current_user.posts.build(post_params)
-    render :new if @post.invalid?
-  end
 
   def update
     @post = Post.find(params[:id])
-    if @post.update(post_params)
+    if params[:back]
+      render :new
+    elsif
+      @post.update(post_params)
       flash[:success] = '投稿を編集しました'
       redirect_to @post
     else
@@ -39,13 +40,28 @@ class PostsController < ApplicationController
       render 'new'
     end
   end
-
+  
+  def confirm
+    @post = current_user.posts.build(post_params)
+    render :new if @post.invalid?
+  end
+  
   def destroy
+    @post.destroy
+    flash[:success]='投稿を削除しました'
+    redirect_to root_path
   end
   
   private
   
   def post_params
     params.require(:post).permit(:book_title, :content_title, :content)
+  end
+  
+  def correct_user
+    @post = current_user.posts.find_by(id: params[:id])
+    unless @post
+      redirect_to root_path
+    end
   end
 end

@@ -5,11 +5,43 @@
 }
 
 .main-content{
-  background:#c0c0c0;
+  background:#dcdcdc;
   border-radius:10px;
 }
 
 .main-content p{
   margin:10px;
-  font-size:13px;
+  font-size:14px;
+}
+
+.btn-toolbar .btn{
+  margin:5px;
+}
+
+.glyphicon-star{
+  color:gold;
+}
+
+.glyphicon-star-empty{
+  color:#a9a9a9;
+}
+
+.edit-page{
+  margin:8px 0 0 6px;
+}
+
+.edit-page .glyphicon{
+  margin-right:10px;
+}
+
+div ul .glyphicon-star{
+  color:gold;
+}
+
+div ul .glyphicon-book{
+  color:brown;
+}
+
+div ul li{
+  font-size:16px;
 }

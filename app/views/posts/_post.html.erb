@@ -28,5 +28,7 @@
     </div>
     <% end %>
   </ul>
-  <%= paginate post %>
+  <% if logged_in? %>
+    <%= paginate post %>
+  <% end %>
 </div>
