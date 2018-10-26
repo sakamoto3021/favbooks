@@ -5,7 +5,7 @@
   </div>
   <h4><%= @post.content_title %></h4>
   <div class="main-content">
-    <p><%= simple_format(@post.content) %></p>
+    <%= simple_format(@post.content) %>
   </div>
   <% unless current_user.id == @post.user_id %>
     <% if current_user.liking?(@post) %>
@@ -26,8 +26,8 @@
   <% end %>
   <div class=" edit-page text-right">
     <% if current_user == @post.user %>
-      <%= link_to '編集', edit_post_path(@post), class:'glyphicon glyphicon-pencil'%>
-      <%= link_to '削除', @poat, method: :delete, data: {confirm: "本当に削除してよろしいですか？"}, class:'glyphicon glyphicon-trash' %>
+      <%= link_to '編集', edit_post_path(@post), class:'index-btn glyphicon glyphicon-pencil edit-btn'%>
+      <%= link_to '削除', @post, method: :delete, data: {confirm: "本当に削除してよろしいですか？"}, class: 'index-btn glyphicon glyphicon-trash delete-btn' %>
     <% end %>
     <%= link_to '一覧へ戻る', root_path %>
   </div>

@@ -2,6 +2,13 @@ class PostsController < ApplicationController
   before_action :require_user_logged_in, only: [:new, :create, :edit, :update, :destroy, :confirm]
   before_action :correct_user, only: [:edit, :update, :destroy]
   
+  def index
+    @posts = Post.order('created_at DESC').page(params[:page])
+    if logged_in?
+      redirect_to root_path
+    end
+  end
+  
   def show
     @post = Post.find(params[:id])
   end
@@ -30,7 +37,7 @@ class PostsController < ApplicationController
   def update
     @post = Post.find(params[:id])
     if params[:back]
-      render :new
+      render :edit
     elsif
       @post.update(post_params)
       flash[:success] = '投稿を編集しました'

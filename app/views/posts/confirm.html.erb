@@ -9,15 +9,15 @@
   </div>
   <div class="field">
     <div class="main-content">
-      <p><%= @post.content %></p>
+      <%= simple_format(@post.content) %>
     </div>
     <%= f.hidden_field :content %>
   </div>
   <div class="btn-toolbar pull-right">
-    <div class="btn btn-group">
+    <div class="btn-group">
       <div class="actions">
-        <%= f.submit '戻る', name: 'back', class:'btn btn-info'%>
-        <%= f.submit '作成', class:'btn btn-primary'%>
+        <%= f.submit '戻る', name: 'back', class:'btn'%>
+        <%= f.submit '作成', class:'btn '%>
       </div>
     </div>
   </div>

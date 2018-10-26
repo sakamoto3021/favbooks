@@ -10,6 +10,8 @@ class User < ApplicationRecord
   has_many :fav_posts, through: :favorites, source: :post
   has_secure_password
   
+  mount_uploader :image, ImageUploader
+  
   def like(post)
     favorites.find_or_create_by(post_id: post.id)
   end

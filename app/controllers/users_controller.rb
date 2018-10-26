@@ -6,6 +6,24 @@ class UsersController < ApplicationController
     @posts = @user.posts.order('created_at DESC').page(params[:page])
     counts(@user)
   end
+  
+  def edit
+    @user = User.find(params[:id])
+  end
+  
+  def update
+    @user = User.find(params[:id])
+    if params[:back]
+      redirect_to @user
+    elsif @user.update(user_params)
+      redirect_to @user
+      flash[:success]='プロフィールを更新しました'
+    else
+      render :edit
+      flash.now[:danger]='プロフィールの更新に失敗しました'
+    end
+  end
+  
 
   def new
     @user = User.new
@@ -32,7 +50,7 @@ class UsersController < ApplicationController
   
 private
   def user_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation)
+    params.require(:user).permit(:name, :email, :password, :password_confirmation, :image, :remove_image)
   end
   
 end

@@ -13,17 +13,12 @@
       <div class="form-group">
         <%= f.label :image, 'ユーザー画像' %>
         <%= f.file_field :image %>
+        <p><%= f.check_box :remove_image %>プロフィール画像を削除</p>
       </div>
-      <div class="form-group">
-        <%= f.label :password, 'パスワード' %>
-        <%= f.password_field :password, class:'form-control' %>
+      <div class="pull-right">
+        <%= f.submit '戻る', name:'back', class: 'btn' %>
+        <%= f.submit '更新', class: 'btn' %>
       </div>
-      <div class="form-group">
-        <%= f.label :password_confirmation,'パスワード(確認用)' %>
-        <%= f.password_field :password_confirmation, class:'form-control' %>
-      </div>
-      
-      <%= f.submit '作成', class: 'btn pull-right' %>
     <% end %>
   </div>
 </div>

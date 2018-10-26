@@ -8,7 +8,8 @@
     </div>
   </div>
   <%= render 'posts/post', post:@posts %>
-  <div class="text-center">
-    <%= link_to 'ユーザー登録', signup_path %>
+  <div class="col-ms-6 col-xs-12">
+  <%= link_to '投稿一覧へ', posts_path, class:'toppage-links' %>
+  <%= link_to 'ユーザー登録', signup_path, class:'toppage-links' %>
   </div>
 <% end %>
