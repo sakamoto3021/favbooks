@@ -5,7 +5,7 @@
         <li class="media col-md-6 pull-left">
           <div class="media-middle media-left">
             <% if post.user.image.file %>
-              <img class="media-object img-circle" src="<%= post.user.image %>" alt="">
+              <img class="media-object img-circle" src="<%= post.user.image.thumb.url %>" alt="">
             <% else %>
               <img class="media-object img-circle" src="<%= gravatar_url(post.user, { size: 100 }) %>" alt="">
             <% end %>

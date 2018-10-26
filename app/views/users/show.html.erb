@@ -1,23 +1,35 @@
 <div class="row">
   <aside class="col-xs-4">
     <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3><%= @user.name %></h3>
+      <div class="panel-heading text-center">
+        <h4>ユーザー画像</h4>
       </div>
       <div class="panel-body">
-        <% if @user.image.file %>
-          <img class="media-object img-circle center-block" src="<%= @user.image %>" alt="">
-        <% else %>
-          <img class="media-object img-circle center-block" src="<%= gravatar_url(@user, { size: 100 }) %>" alt="">
-        <% end %>
-        <%= link_to 'プロフィール編集', edit_user_path(@user) %>
-      </div>
-      <div class="panel-footer">
-      <p>投稿件数：<%= @count_posts %>件</p>
-      <p>お気に入り件数：<%= @count_fav_posts %>件</p>
+      <% if @user.image.file %>
+        <img class="media-object img-circle center-block" src="<%= @user.image.url %>" alt="">
+      <% else %>
+        <img class="media-object img-circle center-block" src="<%= gravatar_url(@user, { size: 100 }) %>" alt="">
+      <% end %>
     </div>
   </aside>
   <div class="col-xs-8">
+  <table class="table table-striped table-bordered">
+    <tr>
+      <td class="text-center">ユーザー名</td>
+      <td class="text-center"><%= @user.name %></td>
+    </tr>
+    <tr>
+      <td class="text-center">登録メールアドレス</td>
+      <td class="text-center"><%= @user.email %></td>
+    </tr>
+    <tr>
+      <td class="text-center">ユーザー登録日</td>
+      <td class="text-center"><%= @user.created_at.strftime('%Y年%m月%d日') %></td>
+    </tr>
+  </table>
+  </div>
+  <%= link_to 'プロフィール編集', edit_user_path(@user),class:'glyphicon glyphicon-pencil pull-right' %>
+  <div class="user-show-nav col-xs-12">
     <ul class="nav nav-tabs nav-justified">
       <li class="<%= 'active' if current_page?(user_path(@user)) %>"><%= link_to user_path(@user) do %><span class="glyphicon glyphicon-book"></span> 投稿一覧 <span class="badge"><%= @count_posts %></span><% end %></li>
       <li class="<%= 'active' if current_page?(fav_posts_user_path(@user)) %>"><%=link_to fav_posts_user_path(@user) do %><span class="glyphicon glyphicon-star"></span> お気に入り一覧 <span class="badge"><%= @count_fav_posts %></span><% end %></li>
