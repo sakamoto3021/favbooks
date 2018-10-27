@@ -1,5 +1,10 @@
 <% if logged_in? %>
-  <p>検索フォーム作る</p>
+  <div class="search">
+    <%= form_tag(root_path, method: :get) do %>
+      <%= text_field_tag :search, '', placeholder:'  作品名から検索ができます', class:'col-xs-6 col-xs-offset-3' %>
+      <%= submit_tag '検索', name: nil %>
+    <% end %>
+  </div>
   <%= render 'posts/post', post:@posts %>
 <% else %>
   <div class="center jumbotron">
@@ -9,7 +14,7 @@
   </div>
   <%= render 'posts/post', post:@posts %>
   <div class="col-ms-6 col-xs-12">
-  <%= link_to '投稿一覧へ', posts_path, class:'toppage-links' %>
-  <%= link_to 'ユーザー登録', signup_path, class:'toppage-links' %>
+    <%= link_to '投稿一覧へ', posts_path, class:'toppage-links' %>
+    <%= link_to 'ユーザー登録', signup_path, class:'toppage-links' %>
   </div>
 <% end %>
