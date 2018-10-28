@@ -79,6 +79,11 @@ div ul .panel .media .media-body p{
   margin-bottom:3px;
 }
 
+.post-user-name{
+  margin-top:0;
+  font-size:18px;
+}
+
 .main{
   background: #f8f8ff;
 }

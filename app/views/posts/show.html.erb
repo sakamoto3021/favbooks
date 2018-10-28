@@ -1,9 +1,10 @@
 <% if logged_in? %>
   <h3><%= @post.book_title %></h3>
-  <div class="text-muted text-right">
+  <p class='pull-left'>投稿者：<%= link_to @post.user.name, user_path(@post.user), class:'post-user-name' %></p>
+  <div class="text-muted text-right clearfix">
     作成日時：<%= @post.created_at.strftime('%Y年%m月%d日') %>
   </div>
-  <h4><%= @post.content_title %></h4>
+  <h4 class='text-center'><%= @post.content_title %></h4>
   <div class="main-content">
     <%= simple_format(@post.content) %>
   </div>
@@ -18,8 +19,8 @@
     <% else %>
       <%= form_for(current_user.favorites.build) do |f| %>
         <%= hidden_field_tag :like_id, @post.id %>
-        <%= button_tag(class: 'pull-left') do %>
-          <%= content_tag :span, 'お気に入り', class:'glyphicon glyphicon-star-empty color-gold' %>
+        <%= button_tag(class: 'btn-default pull-left') do %>
+          <%= content_tag :span, 'お気に入り', class:'glyphicon glyphicon-star-empty' %>
         <% end %>
       <% end %>
     <% end %>
