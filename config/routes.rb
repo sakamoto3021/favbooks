@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root to: 'toppages#index'
   get 'signup', to: 'users#new'
-  resources :users, only: [:show, :create, :edit, :update] do
+  resources :users, only: [:show, :create, :edit, :update, :destroy] do
     member do
       get 'fav_posts'
     end

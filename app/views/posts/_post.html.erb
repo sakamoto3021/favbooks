@@ -1,7 +1,7 @@
 <div class="row">
     <ul class="media-list">
     <% post.each do |post| %>
-      <div class="panel panel-info">
+      <div class="panel panel-info main">
         <li class="media col-md-6 pull-left">
           <div class="media-middle media-left">
             <% if post.user.image.file %>
@@ -29,7 +29,7 @@
           <h5 class="col-md-offset-5 text-center"><%= post.content_title %></h5>
           <p><%= truncate(post.content, length:140) %>  <%= link_to '続きを読む', post_path(post) %>
           <% if current_user == post.user %> 
-            <%= link_to '削除', post_path(post),method: :delete,class:'index-btn delete-btn pull-right glyphicon glyphicon-trash' %>
+            <%= link_to '削除', post_path(post),method: :delete, data: {confirm: "本当に削除してよろしいですか？"},class:'index-btn delete-btn pull-right glyphicon glyphicon-trash' %>
             <%= link_to '編集', edit_post_path(post), class:'edit-btn index-btn pull-right glyphicon glyphicon-pencil' %>
           <% end %></p>
         </div>

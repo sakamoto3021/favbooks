@@ -19,6 +19,7 @@
         <%= f.submit '戻る', name:'back', class: 'btn' %>
         <%= f.submit '更新', class: 'btn' %>
       </div>
+      <%= link_to 'ユーザー情報の削除', @user,data: {confirm: "今までの投稿が全て消去されます。本当に削除してよろしいですか？"}, method: :delete, class:'delete-btn' %>
     <% end %>
   </div>
 </div>

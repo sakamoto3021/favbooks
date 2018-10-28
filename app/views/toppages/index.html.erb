@@ -1,20 +1,46 @@
-<% if logged_in? %>
-  <div class="search">
-    <%= form_tag(root_path, method: :get) do %>
-      <%= text_field_tag :search, '', placeholder:'  作品名から検索ができます', class:'col-xs-6 col-xs-offset-3' %>
-      <%= submit_tag '検索', name: nil %>
-    <% end %>
-  </div>
-  <%= render 'posts/post', post:@posts %>
-<% else %>
-  <div class="center jumbotron">
-    <div class="text-center">
-      <h1>favbooksへようこそ！</h1>
+<div class="toppage">
+  <% if logged_in? %>
+    <div class="search">
+      <%= form_tag(root_path, method: :get) do %>
+        <%= text_field_tag :search, '', placeholder:'書籍タイトルから検索ができます', class:'col-xs-6 col-xs-offset-3' %>
+        <%= submit_tag '検索', name: nil %>
+      <% end %>
     </div>
-  </div>
-  <%= render 'posts/post', post:@posts %>
-  <div class="col-ms-6 col-xs-12">
+    <%= render 'posts/post', post:@posts %>
+  <% else %>
+    <div class="cover">
+      <div class="toppage-text">
+        <div class="text-center">
+          <h1>Favbooksとは</h1>
+        </div>
+        <p>好きな本をただただ誰かに勧めるサイトです。あなたが無理やりにでも誰かに読ませたいと思う一冊について、熱く、そして自由に語りつくしてください。</p>
+        <p class="text-center">あなたの世界を揺るがした物語への、<br>
+        主観的で独りよがりな、<br>
+        客観的で偉そうな、<br>
+        共感できそうもないエゴの塊のような、<br>
+        どこか倒錯していて、<br>
+        どこか錯綜していて、<br>
+        だけどひどく真っ直ぐな、<br>
+        感情剥き出しの声を求めます。</p>
+        <ul class="list-inline">
+          <li class="list-inline-item"><%= link_to '投稿一覧へ', posts_path,style: 'color:#FFFF77;' %></li>
+          <li class="list-inline-item"><%= link_to 'ユーザー登録へ', signup_path, style: 'color:#FFFF77;' %></li>
+        </ul>
+      </div>
+      
+    </div>
+    <div class="text-center">
+      <h3>サイト概要</h3>
+      <p class="overview">レビューサイトの高得点よりも、個人の高い評価の方が人の購買意欲を刺激すると言います。<br>
+      このサイトでは人々の購買意欲を刺激する、個人的な高評価作品だけのレビューを集めています。</p>
+    </div>
+    <h3 class="text-center">投稿を見る</h3>
+    <%= render 'posts/post', post:@posts %>
     <%= link_to '投稿一覧へ', posts_path, class:'toppage-links' %>
-    <%= link_to 'ユーザー登録', signup_path, class:'toppage-links' %>
-  </div>
-<% end %>
+    <div class="text-center">
+      <h3>会員登録</h3>
+      <p>投稿、検索、お気に入り機能を利用するには会員登録が必要です。</p>
+    </div>
+    <%= link_to 'ユーザー登録へ', signup_path, class:'toppage-links' %>
+  <% end %>
+</div>

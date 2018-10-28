@@ -3,11 +3,11 @@
     <%= form_for(@user) do |f| %>
       <%= render 'layouts/error_messages', model: f.object %>
       <div class="form-group">
-        <%= f.label :name, '名前' %>
+        <%= f.label :name, '名前' %><span class="require-user-form">※必須</span>
         <%= f.text_field :name, class:'form-control' %>
       </div>
       <div class="form-group">
-        <%= f.label :email, 'メールアドレス' %>
+        <%= f.label :email, 'メールアドレス' %><span class="require-user-form">※必須</span>
         <%= f.email_field :email, class:'form-control' %>
       </div>
       <div class="form-group">
@@ -15,11 +15,11 @@
         <%= f.file_field :image %>
       </div>
       <div class="form-group">
-        <%= f.label :password, 'パスワード' %>
+        <%= f.label :password, 'パスワード' %><span class="require-user-form">※必須</span>
         <%= f.password_field :password, class:'form-control' %>
       </div>
       <div class="form-group">
-        <%= f.label :password_confirmation,'パスワード(確認用)' %>
+        <%= f.label :password_confirmation,'パスワード(確認用)' %><span class="require-user-form">※必須</span>
         <%= f.password_field :password_confirmation, class:'form-control' %>
       </div>
       

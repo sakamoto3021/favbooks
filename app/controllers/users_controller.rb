@@ -24,7 +24,6 @@ class UsersController < ApplicationController
     end
   end
   
-
   def new
     @user = User.new
   end
@@ -46,6 +45,11 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @posts = @user.fav_posts.order('created_at DESC').page(params[:page])
     counts(@user)
+  end
+  
+  def destroy
+    current_user.destroy
+    redirect_to root_path
   end
   
 private

@@ -29,8 +29,8 @@
       <%= link_to '編集', edit_post_path(@post), class:'index-btn glyphicon glyphicon-pencil edit-btn'%>
       <%= link_to '削除', @post, method: :delete, data: {confirm: "本当に削除してよろしいですか？"}, class: 'index-btn glyphicon glyphicon-trash delete-btn' %>
     <% end %>
-    <%= link_to '一覧へ戻る', root_path %>
   </div>
+  <%= link_to '一覧へ戻る', root_path, class:'pull-right' %>
 <% else %>
   <h3><%= @post.book_title %></h3>
     <div class="text-muted text-right">
