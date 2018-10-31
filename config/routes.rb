@@ -22,4 +22,6 @@ Rails.application.routes.draw do
       get :likes
     end
   end
+  
+  resources :items, only: [:new]
 end

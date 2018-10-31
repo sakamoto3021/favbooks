@@ -19,7 +19,7 @@
     <% else %>
       <%= form_for(current_user.favorites.build) do |f| %>
         <%= hidden_field_tag :like_id, @post.id %>
-        <%= button_tag(class: 'btn-default pull-left') do %>
+        <%= button_tag(class: 'btn-default favorite-btn pull-left') do %>
           <%= content_tag :span, 'お気に入り', class:'glyphicon glyphicon-star-empty' %>
         <% end %>
       <% end %>

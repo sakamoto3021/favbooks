@@ -104,6 +104,10 @@ div ul .panel .media .media-body p{
   color:gold;
 }
 
+.favorite-btn{
+  background:#FFFF88;
+}
+
 .glyphicon-star-empty{
   color:#a9a9a9;
 }
@@ -188,4 +192,28 @@ div ul li{
 
 .user-show-nav{
   margin-bottom:10px;
+}
+
+/* search */
+.search {
+  margin-bottom: 20px;
+}
+
+/* item */
+.item .panel-body {
+  height: 70px;
+}
+.item .panel-heading {
+  height: 250px;
+}
+.item .panel-heading img {
+  height: 100%;
+  max-width: 100%;
+}
+p.item-title {
+  /* 文の行数を2行に保ち、最後に ... を追加するスタイル */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
 }
