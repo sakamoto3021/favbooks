@@ -6,7 +6,7 @@ class ItemsController < ApplicationController
     if @title.present?
       results = RakutenWebService::Books::Book.search({
         title: @title,
-        booksGenreld: 001004,
+        booksGenreId: '001004',
         hits: 20,
       })
       
@@ -16,6 +16,17 @@ class ItemsController < ApplicationController
       end
     end
   end
+  
+  def create
+    @item = Item.find_or_initialize_by(isbn: params[:isbn])
+    
+    unless @item.persisted?
+      results = RakutenWebService::Books::Book.search(isbn: @item.isbn)
+      @item = Item.new(read(results.first))
+      @item.save
+    end
+    redirect_to new_post_path
+  end
 
   
   private
@@ -23,11 +34,13 @@ class ItemsController < ApplicationController
   def read(result)
     title = result['title']
     url = result['itemUrl']
+    isbn = result['isbn']
     image_url = result['mediumImageUrl'].gsub('?_ex=120x120', '')
     
     {
       title: title,
       url: url,
+      isbn: isbn,
       image_url: image_url,
     }
     

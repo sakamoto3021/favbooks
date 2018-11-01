@@ -23,5 +23,5 @@ Rails.application.routes.draw do
     end
   end
   
-  resources :items, only: [:new]
+  resources :items, only: [:new, :create]
 end

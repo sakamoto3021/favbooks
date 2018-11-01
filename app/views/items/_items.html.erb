@@ -1,5 +1,4 @@
 <% if items %>
-  <div class="row">
     <% items.each do |item| %>
       <div class="item">
         <div class="col-md-3 col-sm-4 col-xs-12">
@@ -9,6 +8,12 @@
             </div>
             <div class="panel-body">
               <p class="item-title"><%= item.title %></p>
+              <div class="text-center">
+                <%= form_tag(items_path) do %>
+                  <%= hidden_field_tag :isbn, item.isbn %>
+                  <%= submit_tag 'save', class:'btn' %>
+                <% end %>
+              </div>
             </div>
           </div>
         </div>
