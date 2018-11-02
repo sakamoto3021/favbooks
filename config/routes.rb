@@ -10,9 +10,13 @@ Rails.application.routes.draw do
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
-  resources :posts, only: [:index, :show, :create, :edit, :update, :destroy, :new] do
+  
+  resources :posts do
     collection do
       post 'confirm'
+    end
+    member do
+      get 'title_index'
     end
   end
   

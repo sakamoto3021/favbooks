@@ -2,7 +2,7 @@
 <%= render 'layouts/error_messages', model: f.object %>
   <div class="form-group">
     <%= f.label :book_title, '書籍タイトル' %>
-    <h4><%= @post.item.title %></h4>
+    <h4 class=new-book-title><%= @post.item.title %></h4>
     <span class="require-form">※書籍は後から変更することができません。間違えた場合には前の画面からやり直してください。</span>
     <%= f.hidden_field :book_title, value: @post.item.title %>
   </div>
