@@ -19,7 +19,7 @@ Rails.application.routes.draw do
       get 'title_index'
     end
   end
-  
+ 
   resources :favorites, only: [:create, :destroy] do
     member do
       get :likes
