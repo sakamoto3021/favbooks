@@ -10,8 +10,7 @@ Rails.application.routes.draw do
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
-  
-  resources :posts do
+  resources :posts, only: [:index, :show, :create, :edit, :update, :destroy, :new] do
     collection do
       post 'confirm'
     end

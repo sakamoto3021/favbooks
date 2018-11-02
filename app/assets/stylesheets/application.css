@@ -64,7 +64,7 @@ footer{
   font-size:24px;
 }
 
-.require-user-form{
+.require-form{
   color:#FF3300;
   font-size:13px;
   margin-left:5px;
@@ -94,6 +94,11 @@ div ul .panel .media .media-body p{
   background:#dcdcdc;
   border-radius:10px;
   font-size:14px;
+}
+
+.post-image{
+  height:100px;
+  width: 100px
 }
 
 .btn-toolbar .btn{
@@ -194,12 +199,12 @@ div ul li{
   margin-bottom:10px;
 }
 
-/* search */
+
 .search {
   margin-bottom: 20px;
 }
 
-/* item */
+
 .item .panel-body {
   height: 70px;
 }
@@ -210,10 +215,19 @@ div ul li{
   height: 100%;
   max-width: 100%;
 }
-p.item-title {
-  /* 文の行数を2行に保ち、最後に ... を追加するスタイル */
+p .item-title {
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
   overflow: hidden;
+}
+
+.posts-show-item .panel{
+ width: 130%;
+ margin-top: 30%;
+}
+
+.posts-show-item .panel-heading img{
+  height:100%;
+  width: 100%;
 }

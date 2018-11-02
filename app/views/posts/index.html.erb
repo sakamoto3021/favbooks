@@ -1,36 +1,3 @@
-<div class="row">
-  <ul class="media-list">
-    <% @posts.each do |post| %>
-      <div class="panel panel-info">
-        <li class="media col-md-6 pull-left">
-          <div class="media-middle media-left">
-            <% if post.user.image.file %>
-              <img class="media-object img-circle" src="<%= post.user.image.thumb.url %>" alt="">
-            <% else %>
-              <img class="media-object img-circle" src="<%= gravatar_url(post.user, { size: 100 }) %>" alt="">
-            <% end %>
-          </div>
-          <div class="media-body">
-            <div>
-              <h4>書籍タイトル：<%= post.book_title %></h4>
-            </div>
-            <div>
-              <p>ユーザー名：<%= link_to post.user.name, user_path(post.user) %></p>
-            </div>
-            <div>
-              <p>お気に入り登録数：<%= post.users.count %>件</p>
-            </div>
-            <div>
-              <p>作成日時：<%= post.created_at.strftime('%Y年%m月%d日') %></p>
-            </div>
-          </div>
-        </li>
-        <div>
-          <h5 class="col-md-offset-5 text-center"><%= post.content_title %></h5>
-          <p><%= truncate(post.content, length:140) %>  <%= link_to '続きを読む', post_path(post) %>
-        </div>
-      </div>
-    <% end %>
-  </ul>
-  <%= paginate @posts %>
+<%= render 'post', post: @posts%>
+<%= paginate @posts %>
 </div>

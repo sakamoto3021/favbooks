@@ -11,10 +11,11 @@ class PostsController < ApplicationController
   
   def show
     @post = Post.find(params[:id])
+    @item = @post.item
   end
 
   def new
-    @post = current_user.posts.build
+    @post = current_user.posts.build(item_id: params[:item_id])
   end
 
   def create
@@ -62,7 +63,7 @@ class PostsController < ApplicationController
   private
   
   def post_params
-    params.require(:post).permit(:book_title, :content_title, :content)
+    params.require(:post).permit(:book_title, :content_title, :content, :item_id)
   end
   
   def correct_user

@@ -1,4 +1,6 @@
 class ItemsController < ApplicationController
+  before_action :require_user_logged_in
+  
   def new
     @items = []
     
@@ -6,8 +8,8 @@ class ItemsController < ApplicationController
     if @title.present?
       results = RakutenWebService::Books::Book.search({
         title: @title,
-        booksGenreId: '001004',
-        hits: 20,
+        booksGenreId: '001',
+        hits: 30,
       })
       
       results.each do |result|
@@ -25,7 +27,8 @@ class ItemsController < ApplicationController
       @item = Item.new(read(results.first))
       @item.save
     end
-    redirect_to new_post_path
+      redirect_to new_post_path(item_id: @item.id)
+    # redirect_to "/posts/#{@item.id}/new"
   end
 
   
@@ -35,12 +38,14 @@ class ItemsController < ApplicationController
     title = result['title']
     url = result['itemUrl']
     isbn = result['isbn']
+    author = result['author']
     image_url = result['mediumImageUrl'].gsub('?_ex=120x120', '')
     
     {
       title: title,
       url: url,
       isbn: isbn,
+      author: author,
       image_url: image_url,
     }
     

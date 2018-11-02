@@ -10,8 +10,9 @@
   <div class="field">
     <div class="main-content">
       <%= simple_format(@post.content) %>
+      <%= f.hidden_field :content %>
     </div>
-    <%= f.hidden_field :content %>
+   <%= f.hidden_field :item_id,value: @post.item_id %>
   </div>
   <div class="btn-toolbar pull-right">
     <div class="btn-group">
