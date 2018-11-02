@@ -14,10 +14,6 @@ class PostsController < ApplicationController
     @posts = Post.where(item_id: @post.item.id).order('created_at DESC').page(params[:page])
   end
   
-  def author_index
-  end
-  
-  
   def show
     @post = Post.find(params[:id])
     @item = @post.item
