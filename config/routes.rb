@@ -27,4 +27,5 @@ Rails.application.routes.draw do
   end
   
   resources :items, only: [:new, :create]
+  resources :contacts, only: [:new, :create]
 end
