@@ -24,7 +24,16 @@
       <%= yield %>
     </div>
   <footer>
-    <div class="text-center text-muted">© 2018 Favbooks.</div>
+    <div class="text-center text-muted">
+      <ul class="list-inline">
+        <li class="list-inline-item">
+          © 2018 Favbooks.
+        </li>
+        <li class="list-inline-item">
+          <%= link_to 'お問い合わせ', new_contact_path %>
+        </li>
+      </ul>
+    </div>
   </footer>
   </body>
 </html>
