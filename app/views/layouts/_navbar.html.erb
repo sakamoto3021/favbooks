@@ -12,14 +12,14 @@
       </div>
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
-          <li><%= link_to 'HOME', root_path %></li>
+          <li><%= link_to 'HOME', root_path, class:'nav-links' %></li>
           <% if logged_in? %>
-            <li><%= link_to 'マイページ', user_path(current_user) %></li>
-            <li><%= link_to '新規投稿', new_item_path %></li>
-            <li><%= link_to 'ログアウト', logout_path, method: :delete %></li>
+            <li><%= link_to 'マイページ', user_path(current_user), class:'nav-links' %></li>
+            <li><%= link_to '新規投稿', new_item_path, class:'nav-links' %></li>
+            <li><%= link_to 'ログアウト', logout_path, method: :delete, class:'nav-links' %></li>
           <% else %>
-            <li><%= link_to 'ログイン', login_path %></li>
-            <li><%= link_to 'ユーザー登録', signup_path %></li>
+            <li><%= link_to 'ログイン', login_path, class:'nav-links' %></li>
+            <li><%= link_to 'ユーザー登録', signup_path, class:'nav-links' %></li>
           <% end %>
         </ul>
       </div>
