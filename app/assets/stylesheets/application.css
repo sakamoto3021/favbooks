@@ -51,7 +51,7 @@ footer{
 }
 
 .toppage-links{
-  width:25%;
+  width:40%;
   margin:2px auto;
   font-size:18px;
   display:block;
@@ -94,8 +94,8 @@ div ul .panel .media .media-body p{
 
 .main-content{
   padding:5px;
-  margin: 5px 35px;
-  background:#dcdcdc;
+  margin: 5px 15px;
+  background:#EEEEEE;
   border-radius:10px;
   font-size:14px;
 }
@@ -246,4 +246,8 @@ p .item-title {
 .posts-show-item .panel-heading img{
   height:70%;
   width: 70%;
+}
+
+.profile-edit {
+  margin: 10px 0;
 }
