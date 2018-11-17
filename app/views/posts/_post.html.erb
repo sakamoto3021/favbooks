@@ -1,8 +1,8 @@
 <div class="row">
-    <ul class="media-list">
+  <ul class="media-list">
     <% post.each do |post| %>
       <div class="panel panel-info main">
-        <li class="media col-md-6 pull-left">
+        <li class="media col-md-6">
           <div class="media-middle media-left">
             <img class="media-object post-image" src="<%= post.item.image_url %>" alt="">
           </div>
@@ -22,12 +22,16 @@
           </div>
         </li>
         <div>
-          <h5 class="col-md-offset-5 text-center"><%= post.content_title %></h5>
-          <p><%= truncate(post.content, length:120) %>  <%= link_to '続きを読む', post_path(post) %>
-          <% if current_user == post.user %> 
-            <%= link_to '削除', post_path(post),method: :delete, data: {confirm: "本当に削除してよろしいですか？"},class:'index-btn delete-btn pull-right glyphicon glyphicon-trash' %>
-            <%= link_to '編集', edit_post_path(post), class:'edit-btn index-btn pull-right glyphicon glyphicon-pencil' %>
-          <% end %></p>
+          <h5 class="text-center"><%= post.content_title %></h5>
+          <p>
+            <span>
+              <%= truncate(post.content, length:140) %>  <%= link_to '続きを読む', post_path(post) %>
+              <% if current_user == post.user %> 
+                <%= link_to '削除', post_path(post),method: :delete, data: {confirm: "本当に削除してよろしいですか？"},class:'index-btn delete-btn pull-right glyphicon glyphicon-trash' %>
+                <%= link_to '編集', edit_post_path(post), class:'edit-btn index-btn pull-right glyphicon glyphicon-pencil' %>
+              <% end %>
+            </span>
+          </p>
         </div>
       </div>
     <% end %>
