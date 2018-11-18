@@ -29,4 +29,5 @@ Rails.application.routes.draw do
   
   resources :items, only: [:new, :create]
   resources :contacts, only: [:new, :create]
+  resources :password_resets, only: [:new, :create, :edit, :destroy]
 end

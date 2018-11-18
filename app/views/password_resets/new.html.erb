@@ -1,0 +1,12 @@
+<div class="row">
+    <%= form_for(:password_reset, url: password_resets_path) do |f| %>
+      <%#= render 'layouts/error_messages', model: f.object %>
+      <div>
+        <%= f.label :email, 'メールアドレス' %><span>こちらのアドレスにパスワード再設定用のメールをお送りします</span>
+        <div class="col-xs-6">
+          <%= f.email_field :email, class:'form-control password-reset-form' %>
+        </div>
+      </div>
+      <%= f.submit '送信', class: 'btn' %>
+    <% end %>
+</div>
