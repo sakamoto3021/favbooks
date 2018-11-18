@@ -15,15 +15,17 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    session[:user_id] = nil
-    redirect_to root_path
+    logout if logged_in?
+    redirect_to root_url
   end
   
   private
+  
   def login(email, password)
     @user = User.find_by(email: email)
     if @user && @user.authenticate(password)
       session[:user_id] = @user.id
+      params[:session][:remember_me] == '1' ? remember(@user) : forget(@user)
       return true
     else
       return false

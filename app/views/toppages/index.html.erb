@@ -3,13 +3,14 @@
     <div class="search">
       <%= form_tag(root_path, method: :get) do %>
         <div class="col-xs-8 col-xs-offset-2">
-          <%= text_field_tag :search, '', placeholder:'書籍タイトルから投稿を検索できます', class:'form-control' %>
+          <%= text_field_tag :search, '', placeholder:'投稿を検索できます', class:'form-control' %>
         </div>
         <%= submit_tag '検索', name: nil, class:'btn' %>
       <% end %>
     </div>
     <%= render 'posts/post', post:@posts %>
   <% else %>
+  <% content_for :cover do %>
     <div class="cover">
       <div class="toppage-text">
         <div class="text-center">
@@ -29,8 +30,8 @@
           <li class="list-inline-item"><%= link_to '会員登録へ', signup_path, style: 'color:#FFFF77;' %></li>
         </ul>
       </div>
-      
     </div>
+    <% end %>
     <div class="text-center">
       <h3>サイト概要</h3>
       <p class="overview">レビューサイトの高得点よりも、個人の高い評価の方が人の購買意欲を刺激すると言います。<br>
