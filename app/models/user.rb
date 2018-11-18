@@ -45,9 +45,10 @@ class User < ApplicationRecord
   end
   
   # 渡されたトークンがダイジェストと一致したらtrueを返す
-  def authenticated?(remember_token)
-    return false if remember_digest.nil?
-    BCrypt::Password.new(remember_digest).is_password?(remember_token)
+  def authenticated?(attribute, token)
+    digest = self.send("#{attribute}_digest")
+    return false if digest.nil?
+    BCrypt::Password.new(digest).is_password?(token)
   end
   
   def forget
@@ -64,7 +65,7 @@ class User < ApplicationRecord
     UserMailer.password_reset(self).deliver_now
   end
   
-   def password_reset_expired?
+  def password_reset_expired?
     reset_sent_at < 2.hours.ago
   end
 
