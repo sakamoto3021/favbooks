@@ -1,2 +1,19 @@
-<h1>PasswordResets#edit</h1>
-<p>Find me in app/views/password_resets/edit.html.erb</p>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@user, password_resetpath(params[:id])) do |f| %>
+    
+      <%= hidden_field_tag :email, @user.email %>
+    
+      <div class="form-group">
+        <%= f.label :password, 'パスワード' %><span class="require-form">※必須</span>
+        <%= f.password_field :password, class:'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= f.label :password_confirmation,'パスワード(確認用)' %><span class="require-form">※必須</span>
+        <%= f.password_field :password_confirmation, class:'form-control' %>
+      </div>
+      
+      <%= f.submit '再設定', class: 'btn pull-right' %>
+    <% end %>
+  </div>
+</div>
