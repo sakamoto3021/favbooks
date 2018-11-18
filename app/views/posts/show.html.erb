@@ -38,7 +38,8 @@
     <% else %>
       <h3><%= @post.book_title %></h3>
       <h5>著者：<%= @post.item.author %></h5>
-        <div class="text-muted text-right">
+      <p class='pull-left'>投稿者：<%= link_to @post.user.name, user_path(@post.user), class:'post-user-name' %></p>
+        <div class="text-muted text-right clearfix">
           作成日時：<%= @post.created_at.strftime('%Y年%m月%d日') %>
         </div>
       <h4><%= @post.content_title %></h4>

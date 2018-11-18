@@ -17,10 +17,12 @@
       <td class="text-center">ユーザー名</td>
       <td class="text-center"><%= @user.name %></td>
     </tr>
-    <tr>
-      <td class="text-center">メールアドレス</td>
-      <td class="text-center"><%= @user.email %></td>
-    </tr>
+    <% if current_user == @user %>
+      <tr>
+        <td class="text-center">メールアドレス</td>
+        <td class="text-center"><%= @user.email %></td>
+      </tr>
+    <% end %>
     <tr>
       <td class="text-center">登録日</td>
       <td class="text-center"><%= @user.created_at.strftime('%Y年%m月%d日') %></td>
