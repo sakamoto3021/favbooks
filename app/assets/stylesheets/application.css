@@ -9,6 +9,9 @@ footer{
   margin-top:50px;
 }
 
+h1{
+  margin:0 0 30px 0;
+}
 .nav-links{
   font-size:14px;
 }
@@ -230,15 +233,17 @@ div ul li{
 }
 
 .item .panel-body {
-  height: 100px;
+  height: 80px;
+  padding-top: 5px;
 }
 .item .panel-heading {
   height: 250px;
 }
-.item .panel-heading img {
-  height: 100%;
-  max-width: 100%;
+.item .panel-heading input {
+  height:230px;
+  width: 180px;
 }
+
 p .item-title {
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -269,3 +274,15 @@ p .item-title {
   margin-bottom:10px;
 }
 
+.reset-maile-send small{
+  margin-left:5px;
+}
+
+.reset-maile-send label{
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+
+.reset-maile-send .form-control{
+  width: 50%
+}

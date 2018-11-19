@@ -4,16 +4,13 @@
         <div class="col-md-3 col-sm-4 col-xs-12">
           <div class="panel panel-default">
             <div class="panel-heading text-center">
-              <img src="<%= item.image_url %>" alt="">
+              <%= form_tag(items_path) do %>
+                <%= hidden_field_tag :isbn, item.isbn %>
+                <%= image_submit_tag "#{item.image_url}" %>
+              <% end %>
             </div>
             <div class="panel-body">
               <p class="item-title"><%= item.title %></p>
-              <div class="text-center">
-                <%= form_tag(items_path) do %>
-                  <%= hidden_field_tag :isbn, item.isbn %>
-                  <%= submit_tag '選択', class:'btn' %>
-                <% end %>
-              </div>
             </div>
           </div>
         </div>

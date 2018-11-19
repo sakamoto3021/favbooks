@@ -1,11 +1,13 @@
 <div class="row">
+  <div class="reset-maile-send">
+    <h1>パスワード再設定</h1>
     <%= form_for(:password_reset, url: password_resets_path) do |f| %>
-      <div>
-        <%= f.label :email, 'メールアドレス' %><span>こちらのアドレスにパスワード再設定用のメールをお送りします</span>
-        <div class="col-xs-6">
-          <%= f.email_field :email, class:'form-control password-reset-form' %>
-        </div>
+      <div class="form-group">
+        <%= f.label :email, 'メールアドレス' %>
+        <small>登録されたメールアドレスをご入力ください</small>
+        <%= f.email_field :email, class:'form-control' %>
       </div>
-      <%= f.submit '送信', class: 'btn' %>
+      <%= f.submit 'パスワード再設定メール送信', class: 'maile-btn' %>
     <% end %>
+  </div>
 </div>
