@@ -9,5 +9,9 @@
       </div>
       <%= f.submit 'パスワード再設定メール送信', class: 'maile-btn' %>
     <% end %>
+      <div class="reset-link">
+        <p><%= link_to '新規登録はこちら', signup_path %></p>
+        <p><%= link_to 'ログイン画面に戻る', login_path %></p>
+      </div>
   </div>
 </div>

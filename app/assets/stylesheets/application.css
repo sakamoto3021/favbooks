@@ -94,8 +94,20 @@ div ul .panel{
   margin-bottom:7px;
 }
 
+
 div ul .panel .media .media-body p{
   margin-bottom:3px;
+}
+
+.media-body h4{
+  margin-bottom: 5px;
+}
+
+.media-body h4 span{
+  font-size: 16px;
+  font-weight: bold;
+  color: #dc143c;
+  margin-left: 10px;
 }
 
 .post-user-name{
@@ -122,7 +134,7 @@ div ul .panel .media .media-body p{
 }
 
 .post-image{
-  height:100px;
+  height: 100px;
   width: 100px
 }
 
@@ -182,7 +194,7 @@ div ul li{
 .edit-btn {
     position: relative;
     display: inline-block;
-    padding: 0.25em 0.5em;
+    padding: 0.18em 0.5em;
     text-decoration: none;
     color: #FFF;
     background: #fd9535;
@@ -199,7 +211,7 @@ div ul li{
 .delete-btn {
     position: relative;
     display: inline-block;
-    padding: 0.25em 0.5em;
+    padding: 0.18em 0.5em;
     text-decoration: none;
     color: #FFF;
     background: #dc143c;
@@ -285,4 +297,32 @@ p .item-title {
 
 .reset-maile-send .form-control{
   width: 50%
+}
+
+.reset-maile-send .reset-link{
+  margin-top:30px;
+  margin-bottom: 0;
+}
+
+.reset-maile-send p{
+  margin: 0;
+}
+
+.password-reset-link{
+  margin-left:10px;
+  vertical-align: baseline}
+  
+.netabare{
+  color :#dc143c;
+  margin: 4px 0 0 1px ;
+}
+
+.netabare-confirm{
+  font-size:18px;
+  font-weight: bold;
+  color :#dc143c;
+}
+
+.content-top p{
+  margin-bottom: 0;
 }

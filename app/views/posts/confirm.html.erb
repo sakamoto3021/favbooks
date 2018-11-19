@@ -14,6 +14,14 @@
     </div>
    <%= f.hidden_field :item_id,value: @post.item_id %>
   </div>
+  
+  <div class="field">
+    <% if @post.netabare.present? %>
+      <p class="netabare-confirm">ネタバレ有</p>
+    <% end %>
+    <%= f.hidden_field :netabare, value: @post.netabare %>
+  </div>
+  
   <div class="btn-toolbar pull-right">
     <div class="btn-group">
       <div class="actions">

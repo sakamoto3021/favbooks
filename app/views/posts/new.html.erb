@@ -16,6 +16,12 @@
     <%= f.text_area :content, size: '10x10', class:'form-control' %>
   </div>
   <%= f.hidden_field :item_id,value: @post.item_id %>
+  
+  <%= f.label :netabare, class:'checkbox-inline' do %>
+    <%= f.check_box :netabare %>
+    <span>ネタバレ有</span>
+  <% end %>
+  
   <div class="actions">
     <%= f.submit '確認画面へ', class:'btn pull-right' %>
   </div>

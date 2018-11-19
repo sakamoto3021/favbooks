@@ -14,6 +14,12 @@
     <p class='help-block pull-right'>全角200文字以上5,000文字以下</p>
   <%= f.text_area :content, size: '10x10', class:'form-control' %>
   </div>
+  
+  <%= f.label :netabare, class:'checkbox-inline' do %>
+    <%= f.check_box :netabare %>
+    <span>ネタバレ有</span>
+  <% end %>
+  
   <div class="actions">
     <%= f.submit '更新', class:'btn pull-right' %>
   </div>

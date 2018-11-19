@@ -8,7 +8,7 @@
           </div>
           <div class="media-body">
             <div>
-              <h4>書籍タイトル：<%= post.book_title %></h4>
+              <h4>書籍タイトル：<%= post.book_title %><span><%= '(ネタバレ有)' if post.netabare.present? %></span></h4>
             </div>
             <div>
               <p>ユーザー名：<%= link_to post.user.name, user_path(post.user) %></p>
@@ -21,18 +21,20 @@
             </div>
           </div>
         </li>
-        <div>
+        <div class="content-top">
           <h5 class="text-center"><%= post.content_title %></h5>
-          <p>
-            <span>
-              <%= truncate(post.content, length:140) %>  <%= link_to '続きを読む', post_path(post) %>
-              <% if current_user == post.user %> 
-                <%= link_to '削除', post_path(post),method: :delete, data: {confirm: "本当に削除してよろしいですか？"},class:'index-btn delete-btn pull-right glyphicon glyphicon-trash' %>
-                <%= link_to '編集', edit_post_path(post), class:'edit-btn index-btn pull-right glyphicon glyphicon-pencil' %>
-              <% end %>
-            </span>
-          </p>
+          <% if post.netabare.present? %>
+            <p><%= truncate(post.content, length:130) %>  <%= link_to '続きを読む(この投稿にはネタバレが含まれます)', post_path(post) %></p>
+          <% else %>
+            <p><%= truncate(post.content, length:130) %>  <%= link_to '続きを読む', post_path(post) %></p>
+          <% end %>
         </div>
+          <div class="media-footer text-center">
+            <% if current_user == post.user %> 
+              <%= link_to '削除', post_path(post),method: :delete, data: {confirm: "本当に削除してよろしいですか？"},class:'index-btn delete-btn glyphicon glyphicon-trash' %>
+              <%= link_to '編集', edit_post_path(post), class:'edit-btn index-btn glyphicon glyphicon-pencil' %>
+            <% end %>
+          </div>
       </div>
     <% end %>
   </ul>
