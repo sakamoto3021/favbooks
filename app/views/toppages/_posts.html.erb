@@ -1,0 +1,10 @@
+<%= search_form_for(@q, method: :get) do |f| %>
+
+  <div class="form-group">
+    <%= f.label :book_title_eq, 'タイトル' %>
+    <%= f.search_field :book_title_cont, class: "form-control" %>
+    <small class="text-muted">実名で投稿していない場合もあります</small>
+  </div>
+
+  <%= f.submit 'この条件で検索する', class: "btn btn-sm standard-button" %>
+ <% end %>

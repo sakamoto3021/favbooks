@@ -28,7 +28,6 @@ class ItemsController < ApplicationController
       @item.save
     end
       redirect_to new_post_path(item_id: @item.id)
-    # redirect_to "/posts/#{@item.id}/new"
   end
 
   

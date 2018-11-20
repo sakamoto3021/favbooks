@@ -64,3 +64,5 @@ group :production do
 end
 
 gem 'rails_12factor', group: :production
+
+gem 'ransack'

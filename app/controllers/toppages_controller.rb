@@ -1,6 +1,8 @@
 class ToppagesController < ApplicationController
   def index
-    if params[:search]
+    if params[:search].present?
+      # @q = Post.ransack(params[:q])
+      # @posts = @q.result.page(params[:page]).order(created_at: :DESC)
       search = params[:search]
       @posts = Post.where(['book_title LIKE ?', "%#{search}%"]).page(params[:page]).order('created_at DESC')
     else
