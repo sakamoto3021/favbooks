@@ -31,8 +31,15 @@
           © 2018 Favbooks.
         </li>
         <li class="list-inline-item">
+          <%= link_to '利用規約', agreement_path, class: 'text-muted' %>
+        </li> 
+        <li class="list-inline-item">
+          <%= link_to 'プライバシーポリシー', privacy_path, class: 'text-muted' %>
+        </li>
+        <li class="list-inline-item">
           <%= link_to 'お問い合わせ', new_contact_path, class: 'text-muted' %>
         </li>
+        
       </ul>
     </div>
   </footer>
