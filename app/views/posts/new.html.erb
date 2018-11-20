@@ -13,14 +13,15 @@
   <div class="form-group">
     <%= f.label :content, '本文', class:'pull-left' %>
     <p class='help-block pull-right'>全角200文字以上5,000文字以下</p>
-    <%= f.text_area :content, size: '10x10', class:'form-control' %>
+    <%= f.text_area :content, size: '15x15', class:'form-control' %>
   </div>
-  <%= f.hidden_field :item_id,value: @post.item_id %>
-  
-  <%= f.label :netabare, class:'checkbox-inline' do %>
-    <%= f.check_box :netabare %>
-    <span>ネタバレ有</span>
-  <% end %>
+    <%= f.hidden_field :item_id,value: @post.item_id %>
+  <div class="netabare-check">
+    <%= f.label :netabare, class:'checkbox-inline' do %>
+      <%= f.check_box :netabare %>
+      <span>ネタバレを含む場合は必ずチェックを入れてください</span>
+    <% end %>
+  </div>
   
   <div class="actions">
     <%= f.submit '確認画面へ', class:'btn pull-right' %>

@@ -293,7 +293,9 @@ p .item-title {
 .password-reset-link{
   margin-left:10px;
   vertical-align: baseline}
-  
+
+/*ネタバレ関係*/
+
 .netabare{
   color :#dc143c;
   margin: 4px 0 0 1px ;
@@ -303,6 +305,25 @@ p .item-title {
   font-size:18px;
   font-weight: bold;
   color :#dc143c;
+}
+
+.netabare-check {
+  margin-top:18px;
+  border-bottom: solid 1px 	#DDDDDD;
+  display: inline-block;
+}
+
+.netabare-check input[type=checkbox] {
+    width: 19px;
+    height: 19px;
+    vertical-align: bottom;
+}
+
+.netabare-check span{
+  font-size: 17px;
+  color: red;
+  vertical-align: bottom;
+  margin-left:5px;
 }
 
 
@@ -341,7 +362,14 @@ p .item-title {
   margin-top: auto;
 }
 
+.media-body a{
+  position: relative;
+}
+
+.content-top{
+  display: inline-block
+}
+
 .content-top p{
   margin-bottom: 0;
 }
-

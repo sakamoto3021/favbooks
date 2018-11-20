@@ -1,7 +1,7 @@
 <div class="row">
   <% post.each do |post| %>
     <div class="media box8">
-      <div class="col-md-6 col-xs-12">
+      <div class="col-md-6">
         <img class="media-left post-image pull-left" src="<%= post.item.image_url %>" alt="">
         <div class="media-body clearfix">
           <h4>書籍タイトル：<%= post.book_title %><span><%= '(ネタバレ有)' if post.netabare.present? %></span></h4>
