@@ -6,7 +6,11 @@ body{
 }
 
 footer{
-  margin-top:50px;
+  margin-top:120px;
+}
+
+footer li{
+  margin: 0 8px;
 }
 
 h1{
@@ -69,13 +73,18 @@ h1{
 }
 
 .toppage-links{
-  width:40%;
-  margin:2px auto;
-  font-size:18px;
+  width:37%;
+  height: 30px;
+  margin:40px auto;
+  font-size:20px;
   display:block;
   text-align :center;
   border:1px solid #00008b;
   border-radius: 10px;
+}
+
+.toppages-linls:hover {
+  color: orange;
 }
 
 .search{
@@ -344,6 +353,10 @@ p .item-title {
     margin-top: 10px 
 }
 
+.media {
+  padding: 5px;
+}
+
 .media h4{
   font-size: 16px;
   margin-top: 10px
@@ -372,4 +385,5 @@ p .item-title {
 
 .content-top p{
   margin-bottom: 0;
+  font-size: 15px;
 }

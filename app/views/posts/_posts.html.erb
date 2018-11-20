@@ -14,7 +14,7 @@
         <div class="content-top">
           <h5 class="text-center"><%= post.content_title %></h5>
           <% if post.netabare.present? %>
-            <p><%= truncate(post.content, length:80) %>  <%= link_to '続きを読む(この投稿にはネタバレが含まれます)', post_path(post) %></p>
+            <p><%= truncate(post.content, length:100) %>  <%= link_to '続きを読む(この投稿にはネタバレが含まれます)', post_path(post) %></p>
           <% else %>
             <p><%= truncate(post.content, length:150) %>  <%= link_to '続きを読む', post_path(post) %></p>
           <% end %>
