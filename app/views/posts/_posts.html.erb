@@ -1,0 +1,34 @@
+<div class="row">
+  <% post.each do |post| %>
+    <div class="media box8">
+      <div class="col-md-6 col-xs-12">
+        <img class="media-left post-image pull-left" src="<%= post.item.image_url %>" alt="">
+        <div class="media-body clearfix">
+          <h4>書籍タイトル：<%= post.book_title %><span><%= '(ネタバレ有)' if post.netabare.present? %></span></h4>
+          <p>ユーザー名：<%= link_to post.user.name, user_path(post.user) %></p>
+          <p>お気に入り登録数：<%= post.users.count %>件</p>
+          <p>作成日時：<%= post.created_at.strftime('%Y年%m月%d日') %></p>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="content-top">
+          <h5 class="text-center"><%= post.content_title %></h5>
+          <% if post.netabare.present? %>
+            <p><%= truncate(post.content, length:80) %>  <%= link_to '続きを読む(この投稿にはネタバレが含まれます)', post_path(post) %></p>
+          <% else %>
+            <p><%= truncate(post.content, length:150) %>  <%= link_to '続きを読む', post_path(post) %></p>
+          <% end %>
+        </div>
+      <div class="pull-right">
+        <% if current_user == post.user %> 
+          <%= link_to '編集', edit_post_path(post), class:'edit-btn index-btn glyphicon glyphicon-pencil' %>
+          <%= link_to '削除', post_path(post),method: :delete, data: {confirm: "本当に削除してよろしいですか？"},class:'index-btn delete-btn glyphicon glyphicon-trash' %>
+        <% end %>
+      </div>
+      </div>
+    </div>    
+  <% end %>
+  <% if logged_in? %>
+    <%= paginate post %>
+  <% end %>
+</div>

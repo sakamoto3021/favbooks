@@ -8,7 +8,7 @@
         <%= submit_tag '検索', name: nil, class:'btn' %>
       <% end %>
     </div>
-    <%= render 'posts/post', post:@posts %>
+    <%= render 'posts/posts', post:@posts %>
   <% else %>
   <% content_for :cover do %>
     <div class="cover">
@@ -33,15 +33,20 @@
     </div>
     <% end %>
     <div class="text-center">
-      <h3>サイト概要</h3>
-      <p class="overview">レビューサイトの高得点よりも、個人の高い評価の方が人の購買意欲を刺激すると言います。<br>
-      このサイトでは人々の購買意欲を刺激する、個人的な評価マックスの作品のレビューだけを集めています。</p>
+      <h2>サイト概要</h2>
+      <p class="overview">
+        読もうと思っていた作品に低評価をつけられているのを見て、読むのを止めてしまった経験はありませんか？<br>
+        ここでは他のレビューサイトのように、作品に星をつけることはできません。<br>
+        人の購買意欲を最も刺激するのは、星の数ではなく、具体的な高評価だからです。<br>
+        そのため、このサイトに掲載できるのは、五つ星の最高評価の作品に限られます。<br>
+        このサイトでは、少なくとも誰か一人が最高に面白い作品だと認めた作品だけを集めます。
+      </p>
     </div>
-    <h3 class="text-center">投稿を見る</h3>
-    <%= render 'posts/post', post:@posts %>
+    <h2 class="text-center">投稿を見る</h2>
+    <%= render 'posts/posts', post:@posts %>
     <%= link_to '投稿一覧へ', posts_path, class:'toppage-links' %>
     <div class="text-center">
-      <h3>会員登録</h3>
+      <h2>会員登録</h2>
       <p>投稿、検索、お気に入り機能を利用するには会員登録が必要です。</p>
     </div>
     <%= link_to '会員登録へ', signup_path, class:'toppage-links' %>
