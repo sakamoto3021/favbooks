@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181119031401) do
+ActiveRecord::Schema.define(version: 20181121070129) do
 
   create_table "contacts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
@@ -49,6 +49,8 @@ ActiveRecord::Schema.define(version: 20181119031401) do
     t.datetime "updated_at",                  null: false
     t.integer  "item_id"
     t.boolean  "netabare"
+    t.string   "author"
+    t.string   "genre"
     t.index ["item_id"], name: "index_posts_on_item_id", using: :btree
     t.index ["user_id"], name: "index_posts_on_user_id", using: :btree
   end
