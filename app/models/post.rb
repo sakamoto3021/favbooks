@@ -4,6 +4,7 @@ class Post < ApplicationRecord
   validates :content_title, presence: true, length: {maximum:255}
   validates :book_title, presence: true, length: {maximum:255}
   validates :netabare, inclusion: { in: [true, false] }
+  validates :author, presence: true
   
   
   has_many :favorites
