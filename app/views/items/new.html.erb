@@ -1,11 +1,13 @@
 <div class="search">
   <div class="row">
-    <%= form_tag(new_item_path, method: :get) do %>
-      <div class="col-xs-8 col-xs-offset-1">
-        <%= text_field_tag :title, @title, class: 'form-control', placeholder:'投稿する書籍を検索してください', size: 40 %>
+    <div class="item-search">
+      <%= form_tag(new_item_path, method: :get) do %>
+        <div class="col-xs-8 col-xs-offset-1">
+          <%= text_field_tag :title, @title, class: 'form-control', placeholder:'投稿する書籍を検索してください' %>
+        </div>
+        <%= submit_tag '商品を検索', class: 'btn' %>
       </div>
-      <%= submit_tag '商品を検索', class: 'btn' %>
-    <% end %>
+      <% end %>
   </div>
 </div>
 
