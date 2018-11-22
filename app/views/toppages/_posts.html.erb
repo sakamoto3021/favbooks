@@ -1,29 +1,28 @@
 <div class="row posts-search">
- <span class="box-title">検索</span>
-    <%= search_form_for(@q, url:root_path) do |f| %>
+ <span class="box-title">投稿検索</span>
+  <%= search_form_for(@q, url:root_path) do |f| %>
+  
+    <div class="form-group col-sm-6">
+      <%= f.label :book_title_cont, 'タイトル' %>
+      <%= f.search_field :book_title_cont, class: "form-control" %>
+    </div>
     
-      <div class="form-group col-sm-6">
-        <%= f.label :book_title_cont, 'タイトル' %>
-        <%= f.search_field :book_title_cont, class: "form-control" %>
-      </div>
-      
-      <div class="form-group col-sm-6">
-        <%= f.label :author_cont, '作者名' %>
-        <%= f.search_field :author_cont, class: "form-control" %>
-      </div>
-      
-      <div class="form-group col-sm-6">
-        <%= f.label :genre_cont, 'ジャンル' %>
-        <%= f.select :genre_cont, [['純文学','純文学'],['ミステリー','ミステリー'],['青春','青春'],
-                              ['恋愛','恋愛'],['SF','SF'],['ファンタジー','ファンタジー'],['ホラー','ホラー'],
-                              ['ライトノベル','ライトノベル'],['経済','経済'],['歴史','歴史'],['児童','児童'],
-                              ['その他','その他']], {include_blank: true}, {class:'form-control select'} %>
-        <small>※公式のジャンルと一致しない場合があります</small>
-      </div>
-      <div class="col-sm-6 commit">
-        <%= link_to '検索条件クリア', root_url, class: 'text-muted' %>
-        <%= f.submit '検索する', class: "btn search-btn pull-right" %>
-      </div>
-    <% end %>
-
+    <div class="form-group col-sm-6">
+      <%= f.label :author_cont, '作者名' %>
+      <%= f.search_field :author_cont, class: "form-control" %>
+    </div>
+    
+    <div class="form-group col-sm-6">
+      <%= f.label :genre_cont, 'ジャンル' %>
+      <%= f.select :genre, [['',nil],['純文学','純文学'],['ミステリー・サスペンス','ミステリー・サスペンス'],['青春','青春'],
+                          ['恋愛','恋愛'],['ＳＦ','ＳＦ'],['ファンタジー','ファンタジー'],['ホラー','ホラー'],['ノンフィクション','ノンフィクション'],
+                          ['ライトノベル','ライトノベル'],['実用・エッセイ','実用・エッセイ'],['コメディ','コメディ'],['経済','経済'],
+                          ['歴史','歴史'],['児童','児童'],['詩・短歌・俳句・川柳','詩・短歌・俳句・川柳'],['その他','その他']], {include_blank: true}, {class:'form-control select'} %>
+      <small>※公式のジャンルと一致しない場合があります</small>
+    </div>
+    <div class="col-sm-6 commit">
+      <%= link_to '検索条件クリア', root_url, class: 'text-muted' %>
+      <%= f.submit '投稿を検索する', class: "btn search-btn pull-right" %>
+    </div>
+  <% end %>
 </div>

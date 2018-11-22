@@ -2,7 +2,7 @@
   <div class="col-md-9">
     <% if logged_in? %>
       <h3><%= @post.book_title %></h3>
-      <h5>著者：<%= @post.item.author%></h5>
+      <h4>著者：<%= @post.item.author%></h4>
       <p class='pull-left'>投稿者：<%= link_to @post.user.name, user_path(@post.user), class:'post-user-name' %></p>
       <div class="text-muted text-right clearfix">
         作成日時：<%= @post.created_at.strftime('%Y年%m月%d日') %>
@@ -11,30 +11,16 @@
       <div class="main-content">
         <%= simple_format(@post.content) %>
       </div>
-      <% unless current_user == @post.user %>
-        <% if current_user.liking?(@post) %>
-          <%= form_for(current_user.favorites.find_by(post_id: @post.id),html: {method: :delete}) do |f|%>
-            <%= hidden_field_tag :like_id, @post.id %>
-            <%= button_tag(class: 'btn btn-default') do %>
-              <%= content_tag :span, 'お気に入り', class:'glyphicon glyphicon-star' %>
-            <% end %>
-          <% end %>
-        <% else %>
-          <%= form_for(current_user.favorites.build) do |f| %>
-            <%= hidden_field_tag :like_id, @post.id %>
-            <%= button_tag do %>
-              <%= content_tag :span, 'お気に入り', class:'glyphicon glyphicon-star-empty' %>
-            <% end %>
-          <% end %>
-        <% end %>
-      <% end %>
+      <%= render 'favorite-btn', post: @post %>
       <div class=" edit-page text-right">
         <% if current_user == @post.user %>
           <%= link_to '編集', edit_post_path(@post), class:'index-btn glyphicon glyphicon-pencil edit-btn'%>
           <%= link_to '削除', @post, method: :delete, data: {confirm: "本当に削除してよろしいですか？"}, class: 'index-btn glyphicon glyphicon-trash delete-btn' %>
         <% end %>
       </div>
-      <%= link_to '一覧へ戻る', root_path, class:'pull-right' %>
+      <div class="posts-back text-right">
+        <%= link_to '一覧へ戻る', root_path, class:'text-muted'%>
+      </div>
     <% else %>
       <h3><%= @post.book_title %></h3>
       <h5>著者：<%= @post.item.author %></h5>
@@ -46,8 +32,8 @@
       <div class="main-content">
         <%= simple_format(@post.content) %>
       </div>
-      <div class="text-right">
-        <%= link_to '一覧へ戻る', root_path, class:'text-right' %>
+      <div class="posts-back">
+        <%= link_to '一覧へ戻る', root_path, class:'text-right text-muted' %>
       </div>
     <% end %>
   </div>

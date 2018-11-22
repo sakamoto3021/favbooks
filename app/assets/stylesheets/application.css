@@ -1,5 +1,8 @@
 @charset "utf-8";
 
+
+/*全体*/
+
 body{
   background: #FFFFFF;
   font-family: 'Lato', 'Noto Sans Japanese', '游ゴシック Medium', '游ゴシック体', 'Yu Gothic Medium', YuGothic, 'ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
@@ -89,7 +92,7 @@ h1{
 .posts-search select{
   height: 34px;
   font-size: 15.7px;
-  padding-top: 3px;
+  padding-top: 2px;
 }
 
 .posts-search .commit{
@@ -106,7 +109,7 @@ h1{
 .posts-search .search-btn{
   margin-left:40px;
   height:32px;
-  width: 90px;
+  width: 130px;
   font-size: 16px;
 }
 
@@ -141,13 +144,12 @@ div ul .panel{
 }
 
 
-
+/*投稿詳細*/
 
 .post-user-name{
   margin-top:0;
   font-size:18px;
 }
-
 
 .main-content{
   padding:5px;
@@ -171,12 +173,13 @@ div ul .panel{
   color:gold;
 }
 
-.favorite-btn{
-  background:#FFFF88;
-}
-
 .glyphicon-star-empty{
   color:#a9a9a9;
+}
+
+.posts-back {
+  font-size: 16px;
+  padding-top: 10px;
 }
 
 .edit-page{
@@ -185,10 +188,6 @@ div ul .panel{
 
 .edit-page .glyphicon{
   margin-right:10px;
-}
-
-div ul .glyphicon-star{
-  color:gold;
 }
 
 div ul .glyphicon-book{
