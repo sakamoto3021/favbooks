@@ -32,7 +32,7 @@ class PostsController < ApplicationController
       redirect_to @post
     else
       flash.now[:danger] = '投稿の作成に失敗しました'
-      render 'new'
+      render :new
     end
   end
 
@@ -50,7 +50,7 @@ class PostsController < ApplicationController
       redirect_to @post
     else
       flash.now[:danger] = '投稿の編集に失敗しました'
-      render 'new'
+      render :new
     end
   end
   
@@ -61,8 +61,8 @@ class PostsController < ApplicationController
   
   def destroy
     @post.destroy
-    flash.now[:success]='投稿を削除しました'
-    redirect_to root_url
+    flash[:success]='投稿を削除しました'
+    redirect_back(fallback_location: root_path)
   end
   
   private
