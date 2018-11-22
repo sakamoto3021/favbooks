@@ -1,7 +1,7 @@
 <div class="toppage">
   <% if logged_in? %>
     <div class="search">
-     <%= render 'posts' %>
+     <%= render 'search' %>
     </div>
     <%= render 'posts/posts', post:@posts %>
   <% else %>

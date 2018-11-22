@@ -24,7 +24,7 @@
           <%= link_to '編集', edit_post_path(post), class:'edit-btn index-btn glyphicon glyphicon-pencil' %>
           <%= link_to '削除', post_path(post),method: :delete, data: {confirm: "本当に削除してよろしいですか？"},class:'index-btn delete-btn glyphicon glyphicon-trash' %>
         <% else %>
-          <%#= render 'posts/favorite-btn', post: post %>
+            <%= render 'posts/favorite-btn', post: post if logged_in? %>
         <% end %>
       </div>
       </div>
