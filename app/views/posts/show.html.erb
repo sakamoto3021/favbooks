@@ -11,7 +11,9 @@
       <div class="main-content">
         <%= simple_format(@post.content) %>
       </div>
-      <%= render 'favorites/favorite-btn', post: @post %>
+        <div id="favorite-button">
+          <%= render 'favorites/favorite_btn', post: @post %>
+        </div>
       <div class=" edit-page text-right">
         <% if current_user == @post.user %>
           <%= link_to '編集', edit_post_path(@post), class:'index-btn glyphicon glyphicon-pencil edit-btn'%>
