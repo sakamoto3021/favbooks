@@ -1,5 +1,5 @@
 <div class="row"> 
-  <div class="col-md-9">
+  <div class="col-sm-9">
     <% if logged_in? %>
       <h3><%= @post.book_title %></h3>
       <h4>著者：<%= @post.item.author%></h4>
@@ -20,9 +20,6 @@
           <%= link_to '削除', @post, method: :delete, data: {confirm: "本当に削除してよろしいですか？"}, class: 'index-btn glyphicon glyphicon-trash delete-btn' %>
         <% end %>
       </div>
-      <div class="posts-back text-right">
-        <%= link_to '一覧へ戻る', root_path, class:'text-muted'%>
-      </div>
     <% else %>
       <h3><%= @post.book_title %></h3>
       <h5>著者：<%= @post.item.author %></h5>
@@ -34,13 +31,11 @@
       <div class="main-content">
         <%= simple_format(@post.content) %>
       </div>
-      <div class="posts-back">
-        <%= link_to '一覧へ戻る', root_path, class:'text-right text-muted' %>
-      </div>
     <% end %>
   </div>
+  
   <div class="posts-show-item">
-    <div class="col-md-3 col-sm-4 col-xs-7">
+    <div class="col-sm-3 col-xs-7">
       <div class="panel panel-default">
         <div class="panel-heading text-center">
           <img src="<%= @item.image_url %>" alt="">
@@ -52,4 +47,15 @@
       </div>
     </div>
   </div>
+  
+  <div class="col-xs-12">
+    <%= render 'comments/comment' %>
+    <% if logged_in? %>
+      <%= render 'comments/new' %>
+    <% end %>
+  </div>
+</div>
+
+<div class="posts-back">
+  <%= link_to '一覧へ戻る', root_path%>
 </div>

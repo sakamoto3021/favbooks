@@ -1,0 +1,24 @@
+<div class="row">
+  <h2>コメント</h2>
+  <% unless @post.comments.present? %>
+    <p class="no-comment">この投稿へのコメントはまだありません。最初のコメントを投稿してみましょう！</p>
+  <% end %>
+  <% unless logged_in? %>
+    <p class="no-comment">コメントを送るには会員登録が必要です。<%= link_to '会員登録へ', signup_path %></p>
+  <% end %>
+  <% @post.comments.each do |comment| %>
+    <div class="panel panel-default comment-panel">
+      
+      <% if comment.user.image.file %>
+        <img class="media-object pull-left" src="<%= comment.user.image.url(:thumb) %>" alt="">
+      <% else %>
+        <img class="media-object pull-left" src="<%= gravatar_url(comment.user, { size: 52 }) %>" alt="">
+      <% end %>
+      
+      <p class="clearfix comment-name"><%= comment.user.name %>さん</p>
+      <div class="main-comment"><%= simple_format(comment.comment) %></div>
+      
+      <%= link_to 'コメント削除', post_comment_path(comment.post.id, comment.id), method: :delete if current_user == comment.user %></span>
+    </div>
+  <% end %>
+</div>

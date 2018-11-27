@@ -202,6 +202,36 @@ div ul .panel{
   margin-right:10px;
 }
 
+/*コメント*/
+
+.comment-panel{
+  display: block;
+  margin-top: 18px;
+  border: solid 0.5px black; 
+  padding: 6px 6px 3px 6px;
+  background: #EEEEEE
+}
+
+.no-comment{
+  margin-left: 18px;
+  font-size: 16px
+}
+
+.comment-panel .comment-name{
+  display: inline-block;
+  margin-left: 10px;
+  margin-top: 18px;
+  font-size: 16px;
+}
+
+.comment-panel div{
+  margin-top:18px;
+  margin-left: 18px;
+  padding: 0 5px;
+  font-size: 17px;
+  background: white;
+}
+
 div ul .glyphicon-book{
   color:brown;
 }
@@ -337,7 +367,7 @@ p .item-title {
 
 .posts-show-item .panel{
  width: 130%;
- margin-top: 30%;
+ margin-top: 130px;
 }
 
 .posts-show-item .panel-body{

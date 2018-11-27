@@ -9,5 +9,8 @@ class Post < ApplicationRecord
   
   has_many :favorites
   has_many :users, through: :favorites
+  
+  has_many :comments, dependent: :destroy
+  
   belongs_to :item
 end

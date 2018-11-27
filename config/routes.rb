@@ -19,6 +19,7 @@ Rails.application.routes.draw do
     member do
       get 'title_index'
     end
+    resources :comments, only: [:new, :create, :destroy]
   end
  
   resources :favorites, only: [:create, :destroy] do
