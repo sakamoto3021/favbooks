@@ -18,7 +18,7 @@
       <p class="clearfix comment-name"><%= comment.user.name %>さん</p>
       <div class="main-comment"><%= simple_format(comment.comment) %></div>
       
-      <%= link_to 'コメント削除', post_comment_path(comment.post.id, comment.id), method: :delete if current_user == comment.user %></span>
+      <%= link_to 'コメント削除', post_comment_path(comment.post.id, comment.id), method: :delete, remote: true if current_user == comment.user %></span>
     </div>
   <% end %>
 </div>

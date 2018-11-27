@@ -49,7 +49,10 @@
   </div>
   
   <div class="col-xs-12">
-    <%= render 'comments/comment' %>
+    <div id="comments">
+      <%= render 'comments/comment' %>
+    </div>
+    
     <% if logged_in? %>
       <%= render 'comments/new' %>
     <% end %>

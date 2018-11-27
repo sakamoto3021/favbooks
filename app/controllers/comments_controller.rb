@@ -6,16 +6,17 @@ class CommentsController < ApplicationController
     @comment = @post.comments.build(comment_params)
     @comment.user_id = current_user.id
     if @comment.save
-      redirect_to post_path(@post)
+      
     else
-      render 'posts/show'
+      redirect_to request.referrer || root_url
     end
   end
   
   def destroy
     @comment = Comment.find(params[:id])
+    @post = @comment.post
     @comment.destroy
-    redirect_to request.referrer || root_url
+    # redirect_to request.referrer || root_url
   end
   
   private

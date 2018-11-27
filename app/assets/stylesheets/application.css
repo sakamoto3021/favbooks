@@ -455,7 +455,8 @@ p .item-title {
     box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
 }
 .box8 p {
-    margin-top: 10px 
+  padding-top: 0;
+  font-size: 15.3px;
 }
 
 .media {

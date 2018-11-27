@@ -6,7 +6,8 @@
         <div class="media-body clearfix">
           <h4>書籍タイトル：<%= post.book_title %><span><%= '(ネタバレ有)' if post.netabare.present? %></span></h4>
           <p>ユーザー名：<%= link_to post.user.name, user_path(post.user) %></p>
-          <p>お気に入り登録数：<%= post.users.count %>件</p>
+          <p>お気に入り：<%= post.users.count %>件</p>
+          <p>コメント：<%= post.comments.count %>件</p>
           <p>作成日時：<%= post.created_at.strftime('%Y年%m月%d日') %></p>
         </div>
       </div>
