@@ -15,7 +15,7 @@
         <img class="media-object pull-left" src="<%= gravatar_url(comment.user, { size: 52 }) %>" alt="">
       <% end %>
       
-      <p class="clearfix comment-name"><%= comment.user.name %>さん</p>
+      <p class="clearfix comment-name"><%= link_to comment.user.name, user_path(comment.user) %>さん</p>
       <div class="main-comment"><%= simple_format(comment.comment) %></div>
       
       <%= link_to 'コメント削除', post_comment_path(comment.post.id, comment.id), method: :delete, remote: true if current_user == comment.user %></span>

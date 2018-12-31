@@ -2,14 +2,14 @@
   <% if current_user.liking?(post) %>
     <%= form_for(current_user.favorites.find_by(post_id: post.id),html: {method: :delete}, remote: true) do |f|%>
       <%= hidden_field_tag :like_id, post.id %>
-      <%= button_tag(class: 'unfav-btn') do %>
+      <%= button_tag(class: 'fav-btn') do %>
         <%= content_tag :span, 'お気に入り', class:'glyphicon glyphicon-star' %>
       <% end %>
     <% end %>
   <% else %>
     <%= form_for(current_user.favorites.build, remote: true) do |f| %>
       <%= hidden_field_tag :like_id, post.id %>
-      <%= button_tag(class:'fav-btn') do %>
+      <%= button_tag(class:'unfav-btn') do %>
         <%= content_tag :span, 'お気に入り', class:'glyphicon glyphicon-star-empty' %>
       <% end %>
     <% end %>
